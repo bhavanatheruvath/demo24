@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>bgcolorchange</title>
+</head>
+<style>
+    button{
+        margin: 300px;
+        padding: 20px;
+        border-radius: 5px;
+        border:0cap;
+        box-shadow: 5px 5px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+</style>
+<body>
+    <center>
+        <button onclick="changebg()" id="button">TAP TO CHANGE BACKGROUND COLOR</button>
+    </center>
+</body>
+<script>
+    function changebg(){
+        let string="0123456789ABCDEF";
+        let hex="#";
+        for(i=0;i<6;i++){
+            hex+=string[(Math.floor(Math.random()*16))]
+        }
+        document.body.style.backgroundColor=hex;
+    }
+    document.getElementsById('button')
+    
+</script>
+</html>
