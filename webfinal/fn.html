@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String and Math Functions in JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .code {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid #007bff;
+            font-family: monospace;
+        }
+        .result {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript String and Math Functions</h1>
+
+    <h2>String Functions</h2>
+    <ul>
+        <li><strong>length</strong>: Returns the length of a string.</li>
+        <div class="code">let str = "Hello, World!"; <br>let len = str.length;</div>
+        <p>Result: <span class="result">Length of string is 13</span></p>
+
+        <li><strong>toUpperCase()</strong>: Converts all characters in a string to uppercase.</li>
+        <div class="code">let upper = str.toUpperCase();</div>
+        <p>Result: <span class="result">HELLO, WORLD!</span></p>
+
+        <li><strong>toLowerCase()</strong>: Converts all characters in a string to lowercase.</li>
+        <div class="code">let lower = str.toLowerCase();</div>
+        <p>Result: <span class="result">hello, world!</span></p>
+
+        <li><strong>substring(start, end)</strong>: Extracts characters from a string between two indices.</li>
+        <div class="code">let sub = str.substring(0, 5);</div>
+        <p>Result: <span class="result">Hello</span></p>
+
+        <li><strong>includes()</strong>: Checks if a string contains a specified substring.</li>
+        <div class="code">let hasWorld = str.includes("World");</div>
+        <p>Result: <span class="result">true</span></p>
+    </ul>
+
+    <h2>Math Functions</h2>
+    <ul>
+        <li><strong>Math.abs()</strong>: Returns the absolute value of a number.</li>
+        <div class="code">let abs = Math.abs(-42);</div>
+        <p>Result: <span class="result">42</span></p>
+
+        <li><strong>Math.round()</strong>: Rounds a number to the nearest integer.</li>
+        <div class="code">let rounded = Math.round(4.7);</div>
+        <p>Result: <span class="result">5</span></p>
+
+        <li><strong>Math.sqrt()</strong>: Returns the square root of a number.</li>
+        <div class="code">let squareRoot = Math.sqrt(64);</div>
+        <p>Result: <span class="result">8</span></p>
+
+        <li><strong>Math.pow(base, exponent)</strong>: Returns the base to the power of the exponent.</li>
+        <div class="code">let power = Math.pow(2, 3);</div>
+        <p>Result: <span class="result">8</span></p>
+
+        <li><strong>Math.random()</strong>: Generates a random number between 0 and 1.</li>
+        <div class="code">let randomNum = Math.random();</div>
+        <p>Result: <span class="result">0.534 (example)</span></p>
+    </ul>
+
+    <h2>Try It Yourself</h2>
+    <p>Open the browser's console and try these examples to see the results in real-time!</p>
+</body>
+</html>

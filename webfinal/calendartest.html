@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>calendartest</title>
+    <style>
+        #calendar{
+            align-items: center;
+            justify-content: center;
+            width: 280px;
+            height: auto;
+            text-align: center;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin: 0 auto;
+            padding: 10px;
+            border: 2px solid black;
+            padding-right: 20px;
+        }
+        .header{
+           margin-bottom: 10px; 
+        }
+        .month-year{
+            font-size: 20px;
+            margin-bottom: 10px;
+            background-color: black;
+            padding: 8px;
+            margin-right: -10px;
+        }
+        .month-year select{
+            font-size: 25px;
+            padding: 3px 10px;
+            margin: 5px;
+            border: 1px solid white;
+        }
+        .days-of-week{
+            display: grid;
+            grid-template-columns: repeat(7,1fr);
+        }
+        .dates{
+            display: grid;
+            grid-template-columns: repeat(7,1fr);
+        }
+        .day,.date{
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="calendar">
+        <div class="header">
+            <div class="month-year">
+                <select id="yearSelect"></select>
+                <select id="monthSelect"></select>
+            </div>
+        </div>
+        <div class="days-of-week">
+            <div class="day">sun</div>
+            <div class="day">mon</div>
+            <div class="day">tue</div>
+            <div class="day">wed</div>
+            <div class="day">thu</div>
+            <div class="day">fri</div>
+            <div class="day">sat</div>
+        </div>
+        <div id="dates" class="dates"></div>
+    </div>
+    <script>
+        const monthSelect=document.getElementById("monthSelect");
+        const yearSelect=document.getElementById("yearSelect");
+        const dates=document.getElementById("dates");
+
+        const now=new Date();
+        const currentYear=now.getFullYear();
+        const currentMonth=now.getMonth();
+
+        const months=["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"];
+
+        for(let i=0;i<months.length;i++){
+            const option=document.createElement("option");
+            option.value=i;
+            option.innerText=months[i];
+            if(i===currentMonth) option.selected=true;
+            monthSelect.appendChild(option);
+        }
+
+        for(let year=currentYear-10;year<currentYear+10;year++){
+            const option=document.createElement("option");
+            option.value=year;
+            option.innerText=year;
+            if(year===currentYear) option.selected=true;
+            yearSelect.appendChild(option);
+        }
+
+        function updateCalendar(){
+            const selectedMonth=parseInt(monthSelect.value);
+            const selectedYear=parseInt(yearSelect.value);
+
+            const firstDay=new Date(selectedYear,selectedMonth,1).getDay();
+            const lastDate=new Date(selectedYear,selectedMonth+1,0).getDate();
+
+            dates.innerHTML="";
+
+            for(let i=0;i<firstDay;i++){
+                const emptyCell=document.createElement("div");
+                emptyCell.classList.add("date");
+                dates.appendChild(emptyCell);
+            }
+
+            for(let date=1;date<=lastDate;date++){
+                const dateCell=document.createElement("div");
+                dateCell.classList.add("date");
+                dateCell.innerText=date;
+                dates.appendChild(dateCell);
+            }
+        }
+
+        monthSelect.addEventListener("change",updateCalendar);
+        yearSelect.addEventListener("change",updateCalendar);
+
+        updateCalendar();
+    </script>
+</body>
+</html>

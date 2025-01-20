@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exam</title>
+</head>
+<body>
+    <div id="main"></div>
+    <form id="exam-form">
+        <h2><u>online exam</u></h2>
+        <p>1.Who is the current prime minister of India?</p>
+        <input type="radio" id="q1a" name="q1" value="mms">Man mohan singh<br>
+        <input type="radio" id="q1b" name="q1" value="rns">Raj Nath singh<br>
+        <input type="radio" id="q1c" name="q1" value="nm">Narendra Modi<br>
+        <p>2.Who is the current Chief minister of India?</p>
+        <input type="radio" id="q2a" name="q2" value="pv">Pinarayi Vijayan<br>
+        <input type="radio" id="q2b" name="q2" value="sk">Shivan kutty<br>
+        <input type="radio" id="q2c" name="q2" value="uc">Umman chandi<br><br>
+        <button id="submit" type="button" onclick="submitexam()">submit</button>
+    </form> 
+    <p id="result"></p>   
+    </div>
+    <script>
+        function submitexam(){
+            const q1=document.querySelector('input[name="q1"]:checked').value;
+            const q2=document.querySelector('input[name="q2"]:checked').value;
+            let score=0;
+
+            if(q1=="nm"){
+                score++;
+            }
+            if(q2=="pv"){
+                score++;
+            }
+
+            const result=document.getElementById("result");
+            result.textContent=`Your score is ${score} out of 2`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript String Functions</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    label, input, button {
+      margin: 10px 0;
+      display: block;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <h1>JavaScript String Functions</h1>
+  <p>Enter a string to explore various string manipulation functions:</p>
+  
+  <!-- Input Field -->
+  <label for="inputString">Enter String:</label>
+  <input type="text" id="inputString" placeholder="Enter a string here">
+  
+  <!-- Button to Calculate -->
+  <button onclick="calculateStringFunctions()">Analyze String</button>
+  
+  <!-- Output Section -->
+  <div id="output" class="result">
+    <strong>Results will appear here.</strong>
+  </div>
+
+  <!-- JavaScript Code -->
+  <script>
+    function calculateStringFunctions() {
+      // Get user input
+      const str = document.getElementById("inputString").value;
+
+      // Check if input is empty
+      if (!str) {
+        document.getElementById("output").innerHTML = "Please enter a string!";
+        return;
+      }
+
+      // Perform string operations
+      const strLength = str.length;
+      const upperStr = str.toUpperCase();
+      const lowerStr = str.toLowerCase();
+      const capitalizedStr = str.charAt(0).toUpperCase() + str.slice(1);
+      const reversedStr = str.split('').reverse().join('');
+      const trimmedStr = str.trim();
+      const includesSubStr = str.includes("JavaScript");
+      const indexOfSubStr = str.indexOf("JavaScript");
+      const substringStr = str.substring(0, 5);
+      const replacedStr = str.replace("JavaScript", "JS");
+
+      // Display results
+      document.getElementById("output").innerHTML = `
+        <p><strong>Results:</strong></p>
+        <ul>
+          <li>Length of the string: ${strLength}</li>
+          <li>Uppercase version: ${upperStr}</li>
+          <li>Lowercase version: ${lowerStr}</li>
+          <li>Capitalized version: ${capitalizedStr}</li>
+          <li>Reversed string: ${reversedStr}</li>
+          <li>Trimmed string (leading/trailing spaces removed): "${trimmedStr}"</li>
+          <li>Does the string include "JavaScript"? ${includesSubStr ? 'Yes' : 'No'}</li>
+          <li>Index of "JavaScript" in the string: ${indexOfSubStr >= 0 ? indexOfSubStr : 'Not found'}</li>
+          <li>Substring from 0 to 5: "${substringStr}"</li>
+          <li>Replaced "JavaScript" with "JS": ${replacedStr}</li>
+        </ul>
+      `;
+    }
+  </script>
+</body>
+</html>

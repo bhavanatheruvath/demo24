@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>formvalidation</title>
+    <style>
+      body {
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        font-family: "Times New Roman", Times, serif;
+        margin: 5px;
+        font-size: medium;
+      }
+      #errorMessage {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <form id="regform">
+        <h2><u>Fill the details</u></h2>
+        name :
+        <input type="text" id="name" /><br /><br />
+        email :
+        <input type="email" id="email" /><br /><br />
+        passsword:
+        <input type="password" id="password" /><br /><br />
+        mobile no:
+        <input type="text" id="mobile" /><br /><br />
+        ktu id :
+        <input type="text" id="ktuid" /><br /><br />
+        semester:
+        <select name="semester" id="semester">
+          <option value="">select semester</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option></select
+        ><br /><br />
+        gender :
+        <input type="radio" name="gender" />male
+        <input type="radio" name="gender" />female
+        <input type="radio" name="gender" />others<br /><br />
+        <input type="checkbox" id="checkbox" />Do you want to submit this
+        form?<br /><br />
+        <button type="submit">Register</button>
+      </form>
+      <div id="errorMessage"></div>
+    </div>
+
+    <script>
+      document
+        .getElementById("regform")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          let errorMessage = "";
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+          const mobile = document.getElementById("mobile").value;
+          const ktuid = document.getElementById("ktuid").value;
+          const semester = document.getElementById("semester").value;
+          const gender = document.querySelector('input[name="gender"]:checked');
+          const checkbox = document.getElementById("checkbox").checked;
+
+          if (!name) {
+            errorMessage += "name is required.<br>";
+          } else if (!validateName(name)) {
+            errorMessage += "name can only contain alphabets and space.<br>";
+          }
+
+          if (!email) {
+            errorMessage += "email is required.<br>";
+          } else if (!validateEmail(email)) {
+            errorMessage += "invalid email format.<br>";
+          }
+
+          if (!password) {
+            errorMessage += "password is required.<br>";
+          } else if (!validatePassword(password)) {
+            errorMessage +=
+              "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character.<br>";
+          }
+
+          if (!mobile) {
+            errorMessage += "mobile number is required.<br>";
+          } else if (!validateMobile(mobile)) {
+            errorMessage +=
+              "invalid mobile number.should contain 10 digits.<br>";
+          }
+
+          if (!ktuid) {
+            errorMessage += "ktu id is required.<br>";
+          } else if (!validateKTUID(ktuid)) {
+            errorMessage +=
+              "invalid ktu id.ktu id should be in the format of TVE24MCA-20XX<br>";
+          }
+
+          if (!semester) {
+            errorMessage += "semester is required.<br>";
+          }
+
+          if (!gender) {
+            errorMessage += "gender is required.<br>";
+          }
+
+          if (!checkbox) {
+            errorMessage +=
+              "you must check the checkbox to submit the form.<br>";
+          }
+
+          if (errorMessage) {
+            document.getElementById("errorMessage").innerHTML = errorMessage;
+          } else {
+            document.getElementById("errorMessage").innerHTML = " ";
+            alert("registration successfull");
+            this.reset();
+          }
+        });
+
+      function validateName(name) {
+        const re = /^[A-Za-z\s]+$/;
+        return re.test(name);
+      }
+
+      function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+      }
+
+      function validatePassword(password) {
+        const re =
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[a-zA-Z\d@$!%*?&]{8,}$/;
+        return re.test(password);
+      }
+
+      function validateKTUID(ktuid) {
+        const re = /^TVE24MCA-20\d{2}$/;
+        return re.test(ktuid);
+      }
+
+      function validateMobile(mobile) {
+        const re = /^[6-9]\d{9}$/;
+        return re.test(mobile);
+      }
+    </script>
+  </body>
+</html>

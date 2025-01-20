@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frames Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        iframe {
+            border: 1px solid #ccc;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            height: 100vh;
+        }
+        .nav-frame {
+            background-color: #f4f4f4;
+        }
+        .content-frame {
+            background-color: #fff;
+        }
+        .floating-frame {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            height: 200px;
+            border: 2px solid #333;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Navigation Frame -->
+        <iframe class="nav-frame" src="navigation.html" name="navFrame" title="Navigation Frame"></iframe>
+
+        <!-- Content Frame -->
+        <iframe class="content-frame" src="content.html" name="contentFrame" title="Content Frame"></iframe>
+    </div>
+
+    <!-- Floating Frame -->
+    <iframe class="floating-frame" src="floating.html" title="Floating Frame"></iframe>
+
+</body>
+</html>

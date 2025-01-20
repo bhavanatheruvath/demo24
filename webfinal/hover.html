@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 50%;
+            height: 500px;
+            margin:0;
+            display: block;
+        }
+        .imgc{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>image hovering</h2>
+    <div id="img1" class="imgc">
+        <img src="https://cdn.theatlantic.com/thumbor/k3sgQ9D2TZ59EgY2HnlO9NQ_L0c=/0x0:4800x2700/1600x900/media/img/mt/2023/11/watermelon/original.jpg" alt=""><br>
+        <p>mouse hover to change image!</p>
+    </div>
+    <div id="img2" class="imgc">
+        <img src="https://islandhospital.com/wp-content/uploads/2024/08/6-Watermelon.jpg" alt=""><br>
+        <p>heyyyy</p>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            let img1=document.getElementById("img1");
+            let img2=document.getElementById("img2");
+
+            img2.style.display="none";
+
+            img1.addEventListener("mouseover",()=>{
+                img1.style.display="none";
+                img2.style.display="block";
+            });
+
+            img2.addEventListener("mouseout",()=>{
+                img1.style.display="block";
+                img2.style.display="none";
+            })
+        })
+    </script>
+</body>
+</html>

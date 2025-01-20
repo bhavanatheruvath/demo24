@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Math Functions</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    label, input, button {
+      margin: 10px 0;
+      display: block;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <h1>JavaScript Math Functions</h1>
+  <p>Enter two numbers to see the results of basic Math operations:</p>
+  
+  <!-- Input Fields -->
+  <label for="num1">First Number:</label>
+  <input type="number" id="num1" placeholder="Enter the first number">
+  
+  <label for="num2">Second Number:</label>
+  <input type="number" id="num2" placeholder="Enter the second number">
+  
+  <!-- Button to Calculate -->
+  <button onclick="calculateMathFunctions()">Calculate</button>
+  
+  <!-- Output Section -->
+  <div id="output" class="result">
+    <strong>Results will appear here.</strong>
+  </div>
+
+  <!-- JavaScript Code -->
+  <script>
+    function calculateMathFunctions() {
+      // Get user input
+      const num1 = parseFloat(document.getElementById("num1").value);
+      const num2 = parseFloat(document.getElementById("num2").value);
+
+      // Check if input is valid
+      if (isNaN(num1) || isNaN(num2)) {
+        document.getElementById("output").innerHTML = "Please enter valid numbers!";
+        return;
+      }
+
+      // Perform calculations
+      const absNum1 = Math.abs(num1);
+      const absNum2 = Math.abs(num2);
+      const roundedNum1 = Math.round(num1);
+      const roundedNum2 = Math.round(num2);
+      const powResult = Math.pow(num1, num2);
+      const sqrtNum1 = Math.sqrt(num1);
+      const minNum = Math.min(num1, num2);
+      const maxNum = Math.max(num1, num2);
+      const randomNum = (Math.random() * (num2 - num1) + num1).toFixed(2);
+
+      // Display results
+      document.getElementById("output").innerHTML = `
+        <p><strong>Results:</strong></p>
+        <ul>
+          <li>Absolute Value of ${num1}: ${absNum1}</li>
+          <li>Absolute Value of ${num2}: ${absNum2}</li>
+          <li>Rounded Value of ${num1}: ${roundedNum1}</li>
+          <li>Rounded Value of ${num2}: ${roundedNum2}</li>
+          <li>${num1} raised to the power of ${num2}: ${powResult}</li>
+          <li>Square Root of ${num1} (if valid): ${isNaN(sqrtNum1) ? 'Not valid' : sqrtNum1}</li>
+          <li>Minimum of ${num1} and ${num2}: ${minNum}</li>
+          <li>Maximum of ${num1} and ${num2}: ${maxNum}</li>
+          <li>Random number between ${num1} and ${num2}: ${randomNum}</li>
+        </ul>
+      `;
+    }
+  </script>
+</body>
+</html>

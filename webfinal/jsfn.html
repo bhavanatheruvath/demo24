@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>jsfns</title>
+    <style>
+        #sdiv{
+            display: none;
+        }
+        #mdiv{
+            display: none;
+        }
+        #main{
+            margin: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h2>JAVASCRIPT FUNCTIONS</h2>
+        <p>
+            JavaScript functions are reusable blocks of code that perform a specific task and can be called upon whenever needed. They help in making the code more organized, modular, and easier to maintain. You define a function using the function keyword followed by a name, parentheses, and curly braces. Inside the curly braces, you write the code that should be executed when the function is called.
+        </p>
+        <div id="buttons">
+            <button id="strfn" onclick="stringfn()">STRING FN</button>
+            <button id="mtfn" onclick="mathfn()">MATH FN</button>
+        </div>
+        <div id="sdiv">
+            <h3>STRING FUNCTIONS</h3>
+            <p>
+                JavaScript string functions are versatile tools used to manipulate and interact with strings (sequences of characters). These functions enable a wide range of operations, such as searching for specific characters or substrings, replacing parts of a string, converting the case of characters, and splitting strings into arrays. Commonly used string functions include length to get the number of characters in a string, substring() to extract a part of the string, replace() to replace specified parts, toUpperCase() and toLowerCase() to change the case, and split() to divide the string into an array based on a delimiter. These functions are essential for processing and managing text in JavaScript applications, making them powerful tools for developers.
+            </p>
+        </div>
+        <div id="mdiv">
+            <h3>MATH FUNCTIONS</h3>
+            <p>
+                JavaScript math functions are built-in methods that perform mathematical operations and calculations. These functions are part of the Math object, which includes a variety of methods for tasks such as rounding numbers (Math.round()), generating random numbers (Math.random()), finding the largest or smallest number in a set (Math.max() and Math.min()), and performing trigonometric calculations (Math.sin(), Math.cos(), etc.). For example, Math.sqrt() calculates the square root of a number. These functions are essential for handling complex mathematical computations, making them incredibly useful in both simple and advanced JavaScript applications.
+            </p>
+        </div>
+    </div>
+    <script>
+        let strfn=document.getElementById("sdiv");
+        let mtfn=document.getElementById("mdiv");
+        function stringfn(){
+            strfn.style.display="block";
+            mtfn.style.display="none";
+        }
+        function mathfn(){
+            strfn.style.display="none";
+            mtfn.style.display="block";
+        }
+    </script>
+</body>
+</html>
